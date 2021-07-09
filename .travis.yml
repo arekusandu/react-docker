@@ -7,3 +7,13 @@ before_install:
 
 script:
   - docker run -e CI=true -t arekusandu/react-docker npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-southeast-1"
+  app: "docker"
+  env: "Docker-env"
+  bucket_name: "elasticbeanstalk-ap-southeast-1-882066328325"
+  bucket_path: "docker"
+  on:
+    branch: master
