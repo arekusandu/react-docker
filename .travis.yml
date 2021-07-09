@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker build  -t arekusandu/react-docker -f Dockerfile.dev ./frontend
+  - docker build  -t arekusandu/react-docker -f ./frontend/Dockerfile.dev .
 
 script:
   - docker run -e CI=true -t arekusandu/react-docker npm run test
